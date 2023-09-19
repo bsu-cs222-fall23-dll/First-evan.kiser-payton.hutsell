@@ -24,7 +24,7 @@ public class WikipediaRevisionReader {
     }
 
     private String getLatestRevisionOf(String articleTitle) throws IOException {
-        String urlString = String.format("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revision&titles=%s&rvprop=timestamp&rvlimit=1", articleTitle);
+        String urlString = String.format("https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&format=json&list=allrevisions%7Csearch&formatversion=2&arvprop=timestamp%7Cuser&srsearch=Socks", articleTitle);
         String encodeUrlString = URLEncoder.encode(urlString, Charset.defaultCharset());
         try {
             URL url = new URL(encodeUrlString);

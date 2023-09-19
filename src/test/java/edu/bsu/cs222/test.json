@@ -1,0 +1,219 @@
+{
+  "batchcomplete": true,
+  "continue": {
+    "arvcontinue": "20230919173000|1176129796",
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "allrevisions": [
+      {
+        "pageid": 1580482,
+        "revisions": [
+          {
+            "user": "ShadowDragon343",
+            "timestamp": "2023-09-19T17:30:06Z"
+          }
+        ],
+        "ns": 0,
+        "title": "MegaCon"
+      },
+      {
+        "pageid": 74860133,
+        "revisions": [
+          {
+            "user": "Montenois",
+            "timestamp": "2023-09-19T17:30:04Z"
+          }
+        ],
+        "ns": 0,
+        "title": "Akseli Listo"
+      },
+      {
+        "pageid": 74545096,
+        "revisions": [
+          {
+            "user": "OnMyThirdLife",
+            "timestamp": "2023-09-19T17:30:03Z"
+          }
+        ],
+        "ns": 4,
+        "title": "Wikipedia:Wiki Ed/University of Missouri/Self and Society (Fall 2023)"
+      },
+      {
+        "pageid": 73200707,
+        "revisions": [
+          {
+            "user": "Paleorthodox",
+            "timestamp": "2023-09-19T17:30:03Z"
+          }
+        ],
+        "ns": 0,
+        "title": "Spire City Ghost Hounds"
+      },
+      {
+        "pageid": 55525229,
+        "revisions": [
+          {
+            "user": "Citation bot",
+            "timestamp": "2023-09-19T17:30:02Z"
+          }
+        ],
+        "ns": 0,
+        "title": "Stalin and Voroshilov in the Kremlin"
+      },
+      {
+        "pageid": 67738629,
+        "revisions": [
+          {
+            "user": "Smartse",
+            "timestamp": "2023-09-19T17:30:02Z"
+          }
+        ],
+        "ns": 3,
+        "title": "User talk:Facts2021"
+      },
+      {
+        "pageid": 74773738,
+        "revisions": [
+          {
+            "user": "Alanasings",
+            "timestamp": "2023-09-19T17:30:02Z"
+          }
+        ],
+        "ns": 0,
+        "title": "2023 Eastern Band of Cherokee Indians Marijuana Legalization Measure"
+      },
+      {
+        "pageid": 1053192,
+        "revisions": [
+          {
+            "user": "2001:8F8:1A3F:16B9:F808:DEDA:4A6A:8B07",
+            "anon": true,
+            "timestamp": "2023-09-19T17:30:01Z"
+          }
+        ],
+        "ns": 0,
+        "title": "Kavya Madhavan"
+      },
+      {
+        "pageid": 74151131,
+        "revisions": [
+          {
+            "user": "Cageyfella",
+            "timestamp": "2023-09-19T17:30:01Z"
+          }
+        ],
+        "ns": 0,
+        "title": "2023–24 Austrian Football Second League"
+      },
+      {
+        "pageid": 3340876,
+        "revisions": [
+          {
+            "user": "165.140.214.241",
+            "anon": true,
+            "timestamp": "2023-09-19T17:30:00Z"
+          }
+        ],
+        "ns": 0,
+        "title": "Marriotts Ridge High School"
+      }
+    ],
+    "searchinfo": {
+      "totalhits": 15360
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "SOCKS",
+        "pageid": 244490,
+        "size": 18611,
+        "wordcount": 2127,
+        "snippet": "Practically, a <span class=\"searchmatch\">SOCKS</span> server proxies TCP connections to an arbitrary IP address, and provides a means for UDP packets to be forwarded. <span class=\"searchmatch\">SOCKS</span> performs at Layer",
+        "timestamp": "2023-06-14T10:15:30Z"
+      },
+      {
+        "ns": 0,
+        "title": "Sock",
+        "pageid": 18985156,
+        "size": 21796,
+        "wordcount": 2369,
+        "snippet": "typically worn over <span class=\"searchmatch\">socks</span>. In ancient times, <span class=\"searchmatch\">socks</span> were made from leather or matted animal hair. In the late 16th century, machine-knit <span class=\"searchmatch\">socks</span> were first produced",
+        "timestamp": "2023-09-18T08:46:37Z"
+      },
+      {
+        "ns": 0,
+        "title": "Red socks",
+        "pageid": 1110737,
+        "size": 697,
+        "wordcount": 130,
+        "snippet": "Red <span class=\"searchmatch\">socks</span> are red-coloured <span class=\"searchmatch\">socks</span> Red <span class=\"searchmatch\">socks</span> or Red <span class=\"searchmatch\">Socks</span> may also refer to: The &quot;lucky red <span class=\"searchmatch\">socks</span>&quot; worn in a public support campaign for yachtsman Sir Peter",
+        "timestamp": "2023-08-02T07:52:02Z"
+      },
+      {
+        "ns": 0,
+        "title": "Smelly socks",
+        "pageid": 25009150,
+        "size": 27965,
+        "wordcount": 2720,
+        "snippet": "Smelly <span class=\"searchmatch\">socks</span> are <span class=\"searchmatch\">socks</span> that have acquired a strong odour due to prolonged wearing. Their odour, which is complex and remains the object of study, is a",
+        "timestamp": "2023-07-29T22:50:07Z"
+      },
+      {
+        "ns": 0,
+        "title": "Sock (disambiguation)",
+        "pageid": 477565,
+        "size": 1529,
+        "wordcount": 216,
+        "snippet": "player Wilfried <span class=\"searchmatch\">Sock</span> (born 1944), an East German former ice hockey player <span class=\"searchmatch\">Socks</span> Seibold (1896-1965), a Major League Baseball pitcher <span class=\"searchmatch\">Socks</span> Seybold (1870-1921)",
+        "timestamp": "2023-04-08T10:26:26Z"
+      },
+      {
+        "ns": 0,
+        "title": "Slouch sock",
+        "pageid": 31567698,
+        "size": 14903,
+        "wordcount": 1291,
+        "snippet": "Slouch <span class=\"searchmatch\">socks</span> (slouchy <span class=\"searchmatch\">socks</span>) or loose <span class=\"searchmatch\">socks</span> are a type of <span class=\"searchmatch\">sock</span> featuring a heavy non-elastic upper that may be pushed down into heavy folds around the",
+        "timestamp": "2023-09-08T14:32:43Z"
+      },
+      {
+        "ns": 0,
+        "title": "Bobby sock",
+        "pageid": 4224488,
+        "size": 1744,
+        "wordcount": 129,
+        "snippet": "Bobby <span class=\"searchmatch\">socks</span> are a style of women's <span class=\"searchmatch\">sock</span>, white, ankle-length or collected at the ankle, instead of at full extension up the leg. The term &quot;bobby sox&quot;",
+        "timestamp": "2023-05-05T20:29:55Z"
+      },
+      {
+        "ns": 0,
+        "title": "Snow socks",
+        "pageid": 38916131,
+        "size": 4779,
+        "wordcount": 558,
+        "snippet": "Snow <span class=\"searchmatch\">socks</span> (also known as auto <span class=\"searchmatch\">socks</span>) are textile alternatives to snow chains. Snow <span class=\"searchmatch\">sock</span> devices wrap around the tires of a vehicle to increase traction",
+        "timestamp": "2023-08-21T02:38:23Z"
+      },
+      {
+        "ns": 0,
+        "title": "Sock wrestling",
+        "pageid": 57288827,
+        "size": 3059,
+        "wordcount": 293,
+        "snippet": "remove their <span class=\"searchmatch\">socks</span>, and be careful to not have their <span class=\"searchmatch\">socks</span> removed. The first one to take one or both <span class=\"searchmatch\">socks</span> off or the one with most <span class=\"searchmatch\">socks</span> (in case of",
+        "timestamp": "2023-07-29T07:32:43Z"
+      },
+      {
+        "ns": 0,
+        "title": "Socks (cat)",
+        "pageid": 3258886,
+        "size": 15227,
+        "wordcount": 1210,
+        "snippet": "office, <span class=\"searchmatch\">Socks</span> resided with former Clinton secretary Betty Currie and her husband, owing to continuing conflicts with the Clintons' dog Buddy. <span class=\"searchmatch\">Socks</span> was likely",
+        "timestamp": "2023-09-05T15:45:49Z"
+      }
+    ]
+  }
+}
