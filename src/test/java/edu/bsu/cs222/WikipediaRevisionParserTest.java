@@ -26,8 +26,7 @@ public class WikipediaRevisionParserTest {
         }
 
         private String readSampleFileAsString() throws NullPointerException, IOException {
-            InputStream sampleFile = Thread.currentThread().getContextClassLoader()
-                    .getResourceAsStream("sample.json");
+            InputStream sampleFile = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
             return new String(Objects.requireNonNull(sampleFile).readAllBytes(), Charset.defaultCharset());
         }
 
