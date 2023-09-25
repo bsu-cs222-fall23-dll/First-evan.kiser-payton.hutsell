@@ -20,8 +20,8 @@ public class WikipediaRevisionParserTest {
 
         @Test
         public void testCountRevisionsWithJsonPath() throws IOException {
-            String jsonData = readSampleFileAsString();
-            JSONArray revisions = parser.parse(jsonData);
+            InputStream jsonData = readSampleFileAsString();
+            JSONArray revisions = readSampleFileAsString();
             Assertions.assertEquals(4, revisions.size());
         }
 

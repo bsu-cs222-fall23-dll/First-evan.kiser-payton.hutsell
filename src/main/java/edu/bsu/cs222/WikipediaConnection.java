@@ -2,7 +2,6 @@ package edu.bsu.cs222;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -19,13 +18,12 @@ public class WikipediaConnection extends GetUserInput {
         try{
             URL url = new URL(turningInputToURL());
             URLConnection connection = url.openConnection();
-            connection.setRequestProperty("User-Agent", "CS222FirstProject/Group G (dllargent@bsu.edu)");
+            connection.setRequestProperty("User-Agent", "CS222FirstProject/Group G (evan.kiser@bsu.edu)");
             connection.connect();
             return connection;
         } catch (IOException e) {
-            throw new RuntimeException( e );
+            throw new IOException("Network Connectivity Problem: " +  e.getMessage());
         }
-
     }
 
     public String turningInputToURL() {

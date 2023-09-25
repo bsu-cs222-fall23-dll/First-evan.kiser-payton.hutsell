@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Objects;
 
-public class ReadRevisionUserTest extends WikipediaRevisionParser {
+public class ReadRevisionUserTest  {
 
     @Test
     public void revisionUserTest() throws IOException {
