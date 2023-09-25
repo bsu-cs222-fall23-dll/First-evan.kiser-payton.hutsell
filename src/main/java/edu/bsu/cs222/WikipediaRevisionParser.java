@@ -11,28 +11,24 @@ public class WikipediaRevisionParser  {
     public List<Revision> parse(InputStream testDataStream) throws IOException {
         try {
             JSONArray allRevisions = JsonPath.read(testDataStream, "$..allrevisions.*");
-            if(allRevisions !=null ) {
+            if(allRevisions != null ) {
                 int revisionsLimit = Math.min(allRevisions.size(), 13); // Sets a limit to the smaller number between size() and 13
                 List<Revision> revisionList = new ArrayList<>(revisionsLimit);
 
+                List<String> revisionUser = JsonPath.read(allRevisions, "$..user");
+                List<String> revisionTimestamp = JsonPath.read(allRevisions, "$..timestamp");
                 for (int i=0; i<revisionsLimit; i++) {
-                    JSONArray revision = (JSONArray) allRevisions.get(i);
-                    String revisionUser = JsonPath.read(revision, "$..user");
-                    String revisionTimestamp = JsonPath.read(revision, "$..timestamp");
-
-                    Revision revision1 = new Revision(revisionUser, revisionTimestamp);
-                    //creates ArticleEd.. object with user & timestamp vars and stores in articleEd.. var
-                    revisionList.add(revision1);
-                    //adds the object to the list
+                    Revision revisionHolder = new Revision(revisionUser.get(i), revisionTimestamp.get(i));
+                    revisionList.add(revisionHolder);
                 }
                 return revisionList;
             }
             else {
-                throw new IOException("No Revisions to this Article!");
+                System.err.println("There is No article with that name!");
             }
         }
-        catch (Exception e){
-            throw new IOException("Error! " + e.getMessage());
+        catch (IOException e){
+            System.err.println("Error! " + e.getMessage());
         }
 
     }

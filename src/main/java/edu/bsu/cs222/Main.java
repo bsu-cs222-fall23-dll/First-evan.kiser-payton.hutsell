@@ -15,7 +15,7 @@ public class Main {
                     System.out.println(revision);
                 }
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.err.println("Runtime Error: " + e.getMessage());
             }
 
     }

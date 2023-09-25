@@ -12,7 +12,7 @@ public class GetUserInput {
     }
     public void checkUserInput(String userInput) {
         if(userInput.equals("")) {
-            throw new Error("Error, You did not input anything!");
+            System.err.println("Error, You did not input anything!");
         }
     }
 

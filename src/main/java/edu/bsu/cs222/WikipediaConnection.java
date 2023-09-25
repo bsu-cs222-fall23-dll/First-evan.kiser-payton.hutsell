@@ -22,7 +22,7 @@ public class WikipediaConnection extends GetUserInput {
             connection.connect();
             return connection;
         } catch (IOException e) {
-            throw new IOException("Network Connectivity Problem: " +  e.getMessage());
+            System.err.println("Network Connectivity Problem: " +  e.getMessage());
         }
     }
 
