@@ -18,7 +18,7 @@ public class WikipediaConnection extends GetUserInput {
         try{
             URL url = new URL(turningInputToURL());
             URLConnection connection = url.openConnection();
-            connection.setRequestProperty("User-Agent", "CS222FirstProject/Group G (evan.kiser@bsu.edu)");
+            connection.setRequestProperty("Evan-Kiser", "CS222FirstProject/Group G v0.1.0 (evan.kiser@bsu.edu)");
             connection.connect();
             return connection;
         } catch (IOException e) {
