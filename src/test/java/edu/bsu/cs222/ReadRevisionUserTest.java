@@ -19,7 +19,7 @@ public class ReadRevisionUserTest extends WikipediaRevisionParser {
 
     private InputStream readSampleFileAsString() throws NullPointerException, IOException {
         InputStream sampleFile = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
-        return new String(Objects.requireNonNull(sampleFile).readAllBytes(), Charset.defaultCharset());
+        return new InputStream(Objects.requireNonNull(sampleFile).readAllBytes(), Charset.defaultCharset());
     }
 
 //    private JSONArray getRevisionsFromJson(String jsonData) {

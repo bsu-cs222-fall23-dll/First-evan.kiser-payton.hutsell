@@ -15,7 +15,7 @@ public class WikipediaConnection extends GetUserInput {
         return connection.getInputStream();
     }
 
-    private static URLConnection connectToWikipedia() throws IOException {
+    private URLConnection connectToWikipedia() throws IOException {
         try{
             URL url = new URL(turningInputToURL());
             URLConnection connection = url.openConnection();
@@ -28,7 +28,7 @@ public class WikipediaConnection extends GetUserInput {
 
     }
 
-    public static String turningInputToURL() {
+    public String turningInputToURL() {
         String userSearch = getUserInput();   // Returns the article name the user want to look up
         String articleTitle = URLEncoder.encode(userSearch, Charset.defaultCharset());
         return String.format("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" + articleTitle
