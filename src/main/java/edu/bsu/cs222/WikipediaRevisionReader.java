@@ -8,11 +8,10 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.io.InputStream;
 
-public class WikipediaRevisionReader extends GetUserInput {
+public class WikipediaRevisionReader extends WikipediaConnection {
 
     public static void main(String[] args) {
         WikipediaRevisionReader revisionReader = new WikipediaRevisionReader();
-        // String userSearch = getUserInput();
         try {
             String timestamp = revisionReader.getLatestRevisionOf(userSearch);
             System.out.println(timestamp);
