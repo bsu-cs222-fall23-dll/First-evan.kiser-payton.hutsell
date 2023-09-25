@@ -4,8 +4,7 @@ import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
 import java.io.IOException;
 import java.io.InputStream;
-public class WikipediaRevisionParser extends WikipediaConnection {
-
+public class WikipediaRevisionParser  {
     public String parse(InputStream testDataStream) throws IOException {
         JSONArray result = JsonPath.read(testDataStream, "$..revisions");
         return result.get(0).toString();
