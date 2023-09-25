@@ -7,14 +7,18 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
-public class WikipediaConnection extends GetUserInput {
+public class WikipediaConnection {
+    private String userInput; // Holds the value of the UserInput
+    public WikipediaConnection(String gettingUserInput) {
+        this.userInput = gettingUserInput;
+    }
 
     public InputStream callingConnectToWikipedia() throws IOException {
         URLConnection connection = connectToWikipedia();
         return connection.getInputStream();
     }
 
-    private URLConnection connectToWikipedia() throws IOException {
+    public URLConnection connectToWikipedia() throws IOException {
         try{
             URL url = new URL(turningInputToURL());
             URLConnection connection = url.openConnection();
@@ -28,7 +32,7 @@ public class WikipediaConnection extends GetUserInput {
     }
 
     public String turningInputToURL() {
-        String userSearch = getUserInput();   // Returns the article name the user want to look up
+        String userSearch = userInput;
         String articleTitle = URLEncoder.encode(userSearch, Charset.defaultCharset());
         return String.format("https://en.wikipedia.org/w/api.php?action=query" +
                 "&format=json" +
@@ -39,4 +43,7 @@ public class WikipediaConnection extends GetUserInput {
                 "&redirects");
     }
 
+    public void setUserInput(String newUserInput) {
+        this.userInput=newUserInput;
+    }
 }

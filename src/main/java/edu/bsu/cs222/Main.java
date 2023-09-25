@@ -6,7 +6,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        WikipediaConnection connector = new WikipediaConnection();
+        GetUserInput gettingUserInput = new GetUserInput();
+        WikipediaConnection connector = new WikipediaConnection(gettingUserInput.getUserInput());
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
             try {
                 InputStream wikipediaData = connector.callingConnectToWikipedia();

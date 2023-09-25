@@ -15,6 +15,4 @@ public class GetUserInput {
             System.err.println("Error, You did not input anything!");
         }
     }
-
-
 }

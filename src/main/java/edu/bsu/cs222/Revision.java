@@ -11,6 +11,6 @@ public class Revision {
 
     @Override
     public String toString() {
-        return "\n" + revisionTimestamp + " " + revisionUser;
+        return "\n" + this.revisionTimestamp + " " + this.revisionUser;
     }
 }
