@@ -30,6 +30,6 @@ public class WikipediaRevisionParser  {
         catch (IOException e){
             System.err.println("Error! " + e.getMessage());
         }
-
+        return null; // returns null if the programs doesn't run try method
     }
 }

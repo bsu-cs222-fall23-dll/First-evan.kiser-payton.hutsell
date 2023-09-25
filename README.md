@@ -1,5 +1,8 @@
 # WikipediaReader_EvanKiser_PaytonHutsell
-Wikipedia Reader
-Payton Hutsell
+Authors : Evan Kiser & Payton Hutsell
 
-Wikipedia Reader Evan Kiser
+Purpose : This project is a program where the 
+use can type in an article they wish to search on 
+Wikipedia, and it will return the 13 most recent changes 
+to the article displaying the user and timestamp of the article.
+
