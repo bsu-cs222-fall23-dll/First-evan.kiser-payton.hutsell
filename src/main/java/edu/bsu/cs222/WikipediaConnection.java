@@ -6,18 +6,28 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
-public class WikipediaConnection {
-    public static void main(String[] args) throws IOException {
-        URLConnection connection = connectToWikipedia();
-        String jsonData = readJsonAsStringFrom(connection);
-        printRawJson(jsonData);
+public class WikipediaConnection extends GetUserInput {
+//    public static void main(String[] args) throws IOException {
+//        URLConnection connection = connectToWikipedia();
+//        String jsonData = readJsonAsStringFrom(connection);
+//        printRawJson(jsonData);
+//    }
+
+    public String gettingUserInput() {
+        return getUserInput(); // Returns the article name the user want to look up
+    }
+
+    public String turningInputToURL(String userSearch) {
+        String articleTitle = URLEncoder.encode(userSearch, Charset.defaultCharset());
+        return String.format("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" + articleTitle
+                + "&rvprop=timestamp|user&rvlimit=13&redirects");
     }
 
     private static URLConnection connectToWikipedia() throws IOException {
-        String encodedUrlString = URLEncoder.encode("Socks", Charset.defaultCharset()) ;
+        String encodedUrlString = URLEncoder.encode(userSearch, Charset.defaultCharset()) ;
         URL url = new URL(encodedUrlString);
         URLConnection connection = url.openConnection();
-        connection.setRequestProperty("User-Agent", "CS222FirstProject/0.1 (dllargent@bsu.edu)");
+        connection.setRequestProperty("User-Agent", "CS222FirstProject/Group G (dllargent@bsu.edu)");
         connection.connect();
         return connection;
     }
