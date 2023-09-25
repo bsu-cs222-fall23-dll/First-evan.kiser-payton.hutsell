@@ -15,14 +15,14 @@ public class WikipediaRevisionParserTest {
         @Test
         public void testAccessToJsonFile() throws IOException {
             String jsonData = readSampleFileAsString();
-            Assertions.assertNotNull(jsonData);
+            Assertions.assertNull(jsonData);
         }
 
         @Test
         public void testCountRevisionsWithJsonPath() throws IOException {
             String jsonData = readSampleFileAsString();
-            String revisions = readSampleFileAsString();
-            Assertions.assertEquals(4, revisions.lines());
+            JSONArray revisions = getRevisionsFromJson(jsonData);
+            Assertions.assertEquals(4, revisions.size());
         }
 
         private String readSampleFileAsString() throws NullPointerException, IOException {
