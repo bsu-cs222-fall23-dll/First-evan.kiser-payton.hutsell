@@ -10,7 +10,7 @@ import java.util.List;
 public class WikipediaRevisionParser  {
     public List<Revision> parse(InputStream testDataStream) throws IOException {
         try {
-            JSONArray allRevisions = JsonPath.read(testDataStream, "$..revisions[*]");
+            JSONArray allRevisions = JsonPath.read(testDataStream, "$..allrevisions.*");
             if(allRevisions !=null ) {
                 int revisionsLimit = Math.min(allRevisions.size(), 13); // Sets a limit to the smaller number between size() and 13
                 List<Revision> revisionList = new ArrayList<>(revisionsLimit);
