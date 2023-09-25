@@ -1,7 +1,5 @@
 package edu.bsu.cs222;
 
-import com.jayway.jsonpath.JsonPath;
-import net.minidev.json.JSONArray;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +17,7 @@ public class ReadRevisionUserTest extends WikipediaRevisionParser {
     }
 
 
-    private String readSampleFileAsString() throws NullPointerException, IOException {
+    private InputStream readSampleFileAsString() throws NullPointerException, IOException {
         InputStream sampleFile = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
         return new String(Objects.requireNonNull(sampleFile).readAllBytes(), Charset.defaultCharset());
     }

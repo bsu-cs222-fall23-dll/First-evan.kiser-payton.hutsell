@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class WikipediaRevisionParserTest {
-
+    WikipediaRevisionParser parser = new WikipediaRevisionParser();
         @Test
         public void testAccessToJsonFile() throws IOException {
             String jsonData = readSampleFileAsString();
@@ -21,7 +21,7 @@ public class WikipediaRevisionParserTest {
         @Test
         public void testCountRevisionsWithJsonPath() throws IOException {
             String jsonData = readSampleFileAsString();
-            JSONArray revisions = getRevisionsFromJson(jsonData);
+            JSONArray revisions = parser.parse(jsonData);
             Assertions.assertEquals(4, revisions.size());
         }
 
