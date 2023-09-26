@@ -43,6 +43,7 @@ public class WikipediaConnection {
                 "&redirects");
     }
 
+    // This method is used in a test
     public void setUserInput(String newUserInput) {
         this.userInput=newUserInput;
     }

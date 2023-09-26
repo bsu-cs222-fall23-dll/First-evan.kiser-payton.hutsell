@@ -7,20 +7,16 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         GetUserInput gettingUserInput = new GetUserInput();
         WikipediaConnection connector = new WikipediaConnection(gettingUserInput.getUserInput());
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
+        RevisionPrinter printer = new RevisionPrinter();
             try {
                 InputStream wikipediaData = connector.callingConnectToWikipedia();
                 JSONArray listAllRevisions = parser.parse(wikipediaData);
                 System.out.println("\nList of All Revisions: Timestamp - User");
-                for (Object listAllRevision : listAllRevisions) {
-
-                    String revisionUserName = JsonPath.read(listAllRevision, "$.user");
-                    String revisionTimestamp = JsonPath.read(listAllRevision, "$.timestamp");
-                    System.out.println(revisionTimestamp + " " + revisionUserName);
-                }
+                printer.printListAllRevisions(listAllRevisions);
             } catch (IOException e) {
                 System.err.println("Runtime Error: " + e.getMessage());
             }

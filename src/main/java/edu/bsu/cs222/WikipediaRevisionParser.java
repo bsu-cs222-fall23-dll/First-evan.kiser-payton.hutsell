@@ -7,13 +7,11 @@ import java.io.InputStream;
 
 public class WikipediaRevisionParser  {
     public JSONArray parse(InputStream dataStream) throws IOException {
+//        checkForRedirection(dataStream);
         try {
             JSONArray allRevisions = JsonPath.read(dataStream, "$.query.pages.*.revisions[*]");
-            // Checks for Redirection in Search, Needs Fixing
-//            JSONArray checkForRedirection = JsonPath.read(dataStream, "$..redirects[*].to");
-//            if(checkForRedirection != null ){
-//                System.out.println("Redirected to " + checkForRedirection);
-//            }
+        // Checks for Redirection in Search, Needs Fixing
+
             if(allRevisions != null ) {
                 int revisionsLimit = Math.min(allRevisions.size(), 13); // Sets a limit to the smaller number between size() and 13
                 JSONArray revisionList = new JSONArray();
@@ -32,4 +30,16 @@ public class WikipediaRevisionParser  {
         }
         return null; // returns null if the programs doesn't run try method
     }
+
+//    public void checkForRedirection(InputStream inputStream) {
+//        try{
+//            String redirection = JsonPath.read(inputStream, "$.query.redirects[*].to");
+//            if ( !redirection.equals(null) ){
+//                System.out.println("Redirected to " + redirection);
+//            }
+//        }
+//        catch (IOException e){
+//            System.err.println("Error when checking for redirection! " + e.getMessage());
+//        }
+//    }
 }
