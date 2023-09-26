@@ -8,27 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WikipediaRevisionParser  {
-    public List<Revision> parse(InputStream testDataStream) throws IOException {
+    public JSONArray parse(InputStream dataStream) throws IOException {
         try {
-            JSONArray allRevisions = JsonPath.read(testDataStream, "$..allrevisions.*");
+            JSONArray allRevisions = JsonPath.read(dataStream, "$.query.pages.*.revisions[*]");
+            // Checks for Redirection in Search, Needs Fixing
+//            JSONArray checkForRedirection = JsonPath.read(dataStream, "$..redirects");
+//            if(checkForRedirection != null) {
+//                System.out.println("Redirected to " + checkForRedirection);
+//            }
             if(allRevisions != null ) {
                 int revisionsLimit = Math.min(allRevisions.size(), 13); // Sets a limit to the smaller number between size() and 13
-                List<Revision> revisionList = new ArrayList<>(revisionsLimit);
+                JSONArray revisionList = new JSONArray();
 
-                List<String> revisionUser = JsonPath.read(allRevisions, "$..user");
-                List<String> revisionTimestamp = JsonPath.read(allRevisions, "$..timestamp");
                 for (int i=0; i<revisionsLimit; i++) {
-                    Revision revisionHolder = new Revision(revisionUser.get(i), revisionTimestamp.get(i));
-                    revisionList.add(revisionHolder);
+                    revisionList.add(allRevisions.get(i));
                 }
                 return revisionList;
             }
             else {
-                System.err.println("There is No article with that name!");
+                System.err.println("There is no revision of that article with that name!");
             }
         }
         catch (IOException e){
-            System.err.println("Error! " + e.getMessage());
+            System.err.println("Error parsing data! " + e.getMessage());
         }
         return null; // returns null if the programs doesn't run try method
     }
