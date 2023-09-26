@@ -5,7 +5,6 @@ import net.minidev.json.JSONArray;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException{
@@ -15,20 +14,15 @@ public class Main {
             try {
                 InputStream wikipediaData = connector.callingConnectToWikipedia();
                 JSONArray listAllRevisions = parser.parse(wikipediaData);
+                System.out.println("\nList of All Revisions: Timestamp - User");
                 for(int i=0; i< listAllRevisions.size(); i++) {
-                    System.out.println(listAllRevisions.get(i));
-                }
 
-                // Attempting to Format the Data correctly
-//                for(int i=0; i< listAllRevisions.size(); i++) {
-//                    String revisionUserName = JsonPath.read(listAllRevisions, "$.user");
-//                    String revisionTimestamp = JsonPath.read(listAllRevisions, "$.timestamp");
-//                    System.out.println(revisionTimestamp + " " + revisionUserName);
-//                }
+                    String revisionUserName = JsonPath.read(listAllRevisions.get(i), "$.user");
+                    String revisionTimestamp = JsonPath.read(listAllRevisions.get(i), "$.timestamp");
+                    System.out.println(revisionTimestamp + " " + revisionUserName);
+                }
             } catch (IOException e) {
                 System.err.println("Runtime Error: " + e.getMessage());
             }
-
     }
-
 }

@@ -4,16 +4,14 @@ import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WikipediaRevisionParser  {
     public JSONArray parse(InputStream dataStream) throws IOException {
         try {
             JSONArray allRevisions = JsonPath.read(dataStream, "$.query.pages.*.revisions[*]");
             // Checks for Redirection in Search, Needs Fixing
-//            JSONArray checkForRedirection = JsonPath.read(dataStream, "$..redirects");
-//            if(checkForRedirection != null) {
+//            JSONArray checkForRedirection = JsonPath.read(dataStream, "$..redirects[*].to");
+//            if(checkForRedirection != null ){
 //                System.out.println("Redirected to " + checkForRedirection);
 //            }
             if(allRevisions != null ) {
