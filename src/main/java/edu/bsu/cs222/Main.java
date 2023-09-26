@@ -14,7 +14,6 @@ public class Main {
             try {
                 InputStream wikipediaData = connector.callingConnectToWikipedia();
                 JSONArray listAllRevisions = parser.parse(wikipediaData);
-                System.out.println("\nList of All Revisions: Timestamp - User");
                 printer.printListAllRevisions(listAllRevisions);
             } catch (IOException e) {
                 System.err.println("Runtime Error: " + e.getMessage());

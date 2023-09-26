@@ -5,14 +5,14 @@ public class GetUserInput {
 
     public String getUserInput(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What article would you like to look up on Wikipedia?");
+        System.out.println("\nWhat article would you like to look up on Wikipedia?");
         String userInput = scanner.nextLine();
         checkUserInput(userInput);
         return userInput;
     }
     public void checkUserInput(String userInput) {
-        if(userInput.equals("")) {
-            System.err.println("Error, Input is invalid!");
+        if(userInput.trim().equals("")) {
+            System.err.println("Error, Input is invalid, you did not input anything!");
         }
     }
 }

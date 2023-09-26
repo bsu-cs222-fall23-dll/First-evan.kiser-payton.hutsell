@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
 
@@ -9,8 +10,15 @@ import java.io.InputStream;
 public class WikipediaRevisionParser  {
     public JSONArray parse(InputStream dataStream) throws IOException {
         try {
-//            checkForRedirection(dataStream);
-            JSONArray allRevisions = JsonPath.read(dataStream, "$.query.pages.*.revisions[*]");
+        // Parsing the Data Stream to be able to JsonPath.read the data stream multiple times
+            Object parsedDataStream = Configuration.defaultConfiguration().jsonProvider().parse(dataStream.readAllBytes());
+
+            JSONArray allRevisions = JsonPath.read(parsedDataStream, "$.query.pages.*.revisions[*]");
+
+            RevisionRedirector redirector = new RevisionRedirector();
+            redirector.checkForRedirection(parsedDataStream);
+            ifPageMissing(parsedDataStream);
+
             if(allRevisions != null ) {
                 int revisionsLimit = Math.min(allRevisions.size(), 13); // Sets a limit to the smaller number between size() and 13
                 JSONArray revisionList = new JSONArray();
@@ -28,17 +36,12 @@ public class WikipediaRevisionParser  {
         }
         return null; // returns null if the programs doesn't run try method
     }
+    public void ifPageMissing(Object parsedDataStream) {
+        JSONArray pageMissingCheck  = JsonPath.read(parsedDataStream, "$..missing");
+        if( !pageMissingCheck.isEmpty()) {
+            System.err.println("Error, No Page Found!");
+        }
+    }
 
-//    public void checkForRedirection(InputStream inputStream) throws IOException {
-//        try{
-//
-//            JSONArray redirection = JsonPath.read(inputStream, "$.query.redirects[*].to");
-//            if(!redirection.isEmpty()) {
-//                System.out.println("Redirected to " + redirection.get(0));
-//            }
-//        }
-//        catch (IOException e){
-//            System.err.println("Error when checking for redirection! " + e.getMessage());
-//        }
-//    }
+
 }
