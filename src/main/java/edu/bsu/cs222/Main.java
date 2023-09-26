@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Main {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         GetUserInput gettingUserInput = new GetUserInput();
         WikipediaConnection connector = new WikipediaConnection(gettingUserInput.getUserInput());
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
@@ -15,10 +15,10 @@ public class Main {
                 InputStream wikipediaData = connector.callingConnectToWikipedia();
                 JSONArray listAllRevisions = parser.parse(wikipediaData);
                 System.out.println("\nList of All Revisions: Timestamp - User");
-                for(int i=0; i< listAllRevisions.size(); i++) {
+                for (Object listAllRevision : listAllRevisions) {
 
-                    String revisionUserName = JsonPath.read(listAllRevisions.get(i), "$.user");
-                    String revisionTimestamp = JsonPath.read(listAllRevisions.get(i), "$.timestamp");
+                    String revisionUserName = JsonPath.read(listAllRevision, "$.user");
+                    String revisionTimestamp = JsonPath.read(listAllRevision, "$.timestamp");
                     System.out.println(revisionTimestamp + " " + revisionUserName);
                 }
             } catch (IOException e) {

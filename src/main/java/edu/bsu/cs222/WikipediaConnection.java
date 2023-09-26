@@ -9,7 +9,7 @@ import java.nio.charset.Charset;
 
 public class WikipediaConnection {
     private String userInput; // Holds the value of the UserInput
-    public WikipediaConnection(String gettingUserInput) {
+    public WikipediaConnection(String gettingUserInput) { // Constructor
         this.userInput = gettingUserInput;
     }
 
