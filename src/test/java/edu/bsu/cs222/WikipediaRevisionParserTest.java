@@ -19,9 +19,10 @@ public class WikipediaRevisionParserTest {
         JSONArray revisions = parser.parse(dataStream);
 
         Assertions.assertNotNull(revisions);
-        Assertions.assertEquals(2, revisions.size());
-        Assertions.assertEquals("Revision 1", revisions.get(0));
-        Assertions.assertEquals("Revision 2", revisions.get(1));
+        Assertions.assertEquals(2, revisions.size(), "Expected 2 revisions to be parsed.");
+        Assertions.assertEquals("Revision 1", revisions.get(0), "First revision content should match.");
+        Assertions.assertEquals("Revision 2", revisions.get(1), "Second revision content should match.");
+
     }
 
     @Test
