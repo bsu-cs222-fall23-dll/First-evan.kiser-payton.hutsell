@@ -8,6 +8,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import net.minidev.json.JSONArray;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class GUI extends Application {
     @Override
@@ -22,9 +26,16 @@ public class GUI extends Application {
 
         Button button = new Button("Search!");
         button.setOnAction(event -> {
-
-            System.out.println("\nList of All Revisions: Timestamp - User");
-        });
+            WikipediaConnection connector = new WikipediaConnection(textField.getText());
+            WikipediaRevisionParser parser = new WikipediaRevisionParser();
+            RevisionPrinter printer = new RevisionPrinter();
+            try {
+                InputStream wikipediaData = connector.callingConnectToWikipedia();
+                JSONArray listAllRevisions = parser.parse(wikipediaData);
+                printer.printListAllRevisions(listAllRevisions);
+            } catch (IOException e) {
+                System.err.println("Runtime Error: " + e.getMessage());
+            }        });
         vbox.getChildren().add(button);
 
         primaryStage.setScene(new Scene(vbox));
