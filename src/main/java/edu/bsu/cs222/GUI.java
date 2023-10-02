@@ -28,11 +28,9 @@ public class GUI extends Application {
         button.setOnAction(event -> {
             WikipediaConnection connector = new WikipediaConnection(textField.getText());
             WikipediaRevisionParser parser = new WikipediaRevisionParser();
-            RevisionPrinter printer = new RevisionPrinter();
             try {
                 InputStream wikipediaData = connector.callingConnectToWikipedia();
-                JSONArray listAllRevisions = parser.parse(wikipediaData);
-                printer.printListAllRevisions(listAllRevisions);
+                parser.parse(wikipediaData);
             } catch (IOException e) {
                 System.err.println("Runtime Error: " + e.getMessage());
             }        });

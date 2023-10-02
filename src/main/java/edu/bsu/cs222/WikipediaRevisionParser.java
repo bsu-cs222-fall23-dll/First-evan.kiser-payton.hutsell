@@ -8,7 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class WikipediaRevisionParser  {
-    public JSONArray parse(InputStream dataStream) throws IOException {
+    RevisionPrinter printer = new RevisionPrinter(); // Used to Call RevisionPrinter
+    public StringBuilder parse(InputStream dataStream) throws IOException {
         try {
         // Parsing the Data Stream to be able to JsonPath.read the data stream multiple times
             Object parsedDataStream = Configuration.defaultConfiguration().jsonProvider().parse(dataStream.readAllBytes());
@@ -16,7 +17,7 @@ public class WikipediaRevisionParser  {
             JSONArray allRevisions = JsonPath.read(parsedDataStream, "$.query.pages.*.revisions[*]");
 
             RevisionRedirector redirector = new RevisionRedirector();
-            redirector.checkForRedirection(parsedDataStream);
+            String redirection = redirector.checkForRedirection(parsedDataStream);
             ifPageMissing(parsedDataStream);
 
             if(allRevisions != null ) {
@@ -25,7 +26,7 @@ public class WikipediaRevisionParser  {
                 for (int i=0; i<revisionsLimit; i++) {
                     revisionList.add(allRevisions.get(i));
                 }
-                return revisionList;
+                return printer.printListAllRevisions(revisionList, redirection);
             }
             else {
                 System.err.println("There is no revision of that article with that name!");
@@ -34,7 +35,7 @@ public class WikipediaRevisionParser  {
         catch (IOException e){
             System.err.println("Error parsing data! " + e.getMessage());
         }
-        return null; // returns null if the programs doesn't run try method
+        return null;
     }
     public void ifPageMissing(Object parsedDataStream) {
         JSONArray pageMissingCheck  = JsonPath.read(parsedDataStream, "$..missing");
