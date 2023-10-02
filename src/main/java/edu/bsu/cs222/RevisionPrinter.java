@@ -4,7 +4,7 @@ import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
 
 public class RevisionPrinter {
-    public StringBuilder printListAllRevisions(JSONArray arrayWithRevisions, String redirection) {
+    public String printListAllRevisions(JSONArray arrayWithRevisions, String redirection) {
         StringBuilder printedRevisions = new StringBuilder();
         if(redirection != null) {
             printedRevisions.append("\nRedirected to ").append(redirection).append("\n");
@@ -15,6 +15,6 @@ public class RevisionPrinter {
             String revisionTimestamp = JsonPath.read(revision, "$.timestamp");
             printedRevisions.append(revisionTimestamp).append(" ").append(revisionUserName).append("\n");
         }
-    return printedRevisions;
+    return String.valueOf(printedRevisions);
     }
 }

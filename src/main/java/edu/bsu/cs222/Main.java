@@ -10,7 +10,7 @@ public class Main {
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
             try {
                 InputStream wikipediaData = connector.callingConnectToWikipedia();
-                StringBuilder finalStringOfRevisions = parser.parse(wikipediaData);
+                String finalStringOfRevisions = parser.parse(wikipediaData);
                 System.out.println(finalStringOfRevisions);
             } catch (IOException e) {
                 System.err.println("Runtime Error: " + e.getMessage());

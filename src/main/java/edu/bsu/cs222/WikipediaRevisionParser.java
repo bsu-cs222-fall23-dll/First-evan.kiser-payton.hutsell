@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 public class WikipediaRevisionParser  {
     RevisionPrinter printer = new RevisionPrinter(); // Used to Call RevisionPrinter
-    public StringBuilder parse(InputStream dataStream) throws IOException {
+    public String parse(InputStream dataStream) throws IOException {
         try {
         // Parsing the Data Stream to be able to JsonPath.read the data stream multiple times
             Object parsedDataStream = Configuration.defaultConfiguration().jsonProvider().parse(dataStream.readAllBytes());
