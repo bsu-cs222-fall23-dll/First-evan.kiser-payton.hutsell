@@ -40,5 +40,6 @@ public class GUI extends Application {
 
         primaryStage.setScene(new Scene(vbox));
         primaryStage.show();
+
     }
 }
