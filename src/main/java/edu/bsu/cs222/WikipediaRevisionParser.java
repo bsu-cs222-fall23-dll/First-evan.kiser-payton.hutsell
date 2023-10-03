@@ -30,10 +30,14 @@ public class WikipediaRevisionParser  {
             }
             else {
                 System.err.println("There is no revision of that article with that name!");
+                System.exit(0);
+
             }
         }
         catch (IOException e){
             System.err.println("Error parsing data! " + e.getMessage());
+            System.exit(0);
+
         }
         return null;
     }
@@ -41,6 +45,7 @@ public class WikipediaRevisionParser  {
         JSONArray pageMissingCheck  = JsonPath.read(parsedDataStream, "$..missing");
         if( !pageMissingCheck.isEmpty()) {
             System.err.println("Error, No Page Found!");
+            System.exit(0);
         }
     }
 

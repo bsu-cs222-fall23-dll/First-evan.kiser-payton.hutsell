@@ -9,7 +9,7 @@ public class RevisionPrinter {
         if(redirection != null) {
             printedRevisions.append("\nRedirected to ").append(redirection).append("\n");
         }
-        printedRevisions.append("\nList of All Revisions: Timestamp - User\n");
+        printedRevisions.append("\nList of All Revisions: Timestamp - User\n\n");
         for (Object revision : arrayWithRevisions) {
             String revisionUserName = JsonPath.read(revision, "$.user");
             String revisionTimestamp = JsonPath.read(revision, "$.timestamp");

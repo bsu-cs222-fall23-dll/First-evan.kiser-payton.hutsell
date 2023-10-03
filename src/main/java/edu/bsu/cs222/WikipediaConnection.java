@@ -27,6 +27,8 @@ public class WikipediaConnection {
             return connection;
         } catch (IOException e) {
             System.err.println("Network Connectivity Problem: " +  e.getMessage());
+            System.exit(0);
+
         }
         return null; // returns null if the programs doesn't run try method
     }

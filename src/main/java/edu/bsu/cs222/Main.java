@@ -14,6 +14,8 @@ public class Main {
                 System.out.println(finalStringOfRevisions);
             } catch (IOException e) {
                 System.err.println("Runtime Error: " + e.getMessage());
+                System.exit(0);
+
             }
     }
 }
