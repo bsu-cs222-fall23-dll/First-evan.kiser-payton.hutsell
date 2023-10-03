@@ -1,6 +1,7 @@
 package edu.bsu.cs222;
 
-import java.io.IOException;
+import edu.bsu.cs222.Exceptions.NoWikiConnectionException;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -13,24 +14,23 @@ public class WikipediaConnection {
         this.userInput = gettingUserInput;
     }
 
-    public InputStream callingConnectToWikipedia() throws IOException {
+    public InputStream callingConnectToWikipedia() throws Exception {
         URLConnection connection = connectToWikipedia();
         return connection.getInputStream();
     }
 
-    public URLConnection connectToWikipedia() throws IOException {
-        try{
+    public URLConnection connectToWikipedia() throws NoWikiConnectionException {
+        try {
             URL url = new URL(turningInputToURL());
             URLConnection connection = url.openConnection();
             connection.setRequestProperty("Evan-Kiser", "CS222FirstProject/Group G v0.1.0 (evan.kiser@bsu.edu)");
             connection.connect();
             return connection;
-        } catch (IOException e) {
-            System.err.println("Network Connectivity Problem: " +  e.getMessage());
-            System.exit(0);
-
         }
-        return null; // returns null if the programs doesn't run try method
+        catch (Exception e) {
+            throw new NoWikiConnectionException();
+        }
+
     }
 
     public String turningInputToURL() {

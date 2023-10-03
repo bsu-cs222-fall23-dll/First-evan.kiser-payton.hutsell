@@ -1,18 +1,21 @@
 package edu.bsu.cs222;
 
+import edu.bsu.cs222.Exceptions.NoInputException;
+
 import java.util.Scanner;
+
 public class GetUserInput {
 
-    public String getUserInput(){
+    public String getUserInput() throws NoInputException {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWhat article would you like to look up on Wikipedia?");
         String userInput = scanner.nextLine();
-        checkUserInput(userInput);
-        return userInput;
-    }
-    public void checkUserInput(String userInput) {
         if(userInput.trim().equals("")) {
-            System.err.println("Error, Input is invalid, you did not input anything!");
+            throw new NoInputException();
         }
+        return userInput;
+
     }
+
 }

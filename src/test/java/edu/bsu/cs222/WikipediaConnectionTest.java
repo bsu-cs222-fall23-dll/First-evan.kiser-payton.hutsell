@@ -9,7 +9,7 @@ public class WikipediaConnectionTest {
     WikipediaConnection wikiConnection = new WikipediaConnection("Socks");
 
     @Test
-    public void testCallingConnectToWikipedia() {
+    public void testCallingConnectToWikipedia() throws Exception {
         try {
             InputStream inputStream = wikiConnection.callingConnectToWikipedia();
             assertNotNull(inputStream);
@@ -19,7 +19,7 @@ public class WikipediaConnectionTest {
     }
 
     @Test
-    public void testConnectionToWikipedia() {
+    public void testConnectionToWikipedia() throws Exception {
         try {
             URLConnection connection = wikiConnection.connectToWikipedia();
             assertNotNull(connection);

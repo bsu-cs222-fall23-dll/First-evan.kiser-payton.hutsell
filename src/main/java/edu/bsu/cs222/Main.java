@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         GetUserInput gettingUserInput = new GetUserInput();
         WikipediaConnection connector = new WikipediaConnection(gettingUserInput.getUserInput());
         WikipediaRevisionParser parser = new WikipediaRevisionParser();

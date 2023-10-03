@@ -1,5 +1,7 @@
 package edu.bsu.cs222;
 
+import edu.bsu.cs222.Exceptions.NoInputException;
+import edu.bsu.cs222.Exceptions.NoWikiConnectionException;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -36,8 +38,17 @@ public class GUI extends Application {
                 printedRevisions.setText(listOfRevisions);
                 primaryStage.setScene(new Scene(new Group(printedRevisions), 600, 300));
 
+            } catch (NoInputException e) {
+                Text exceptionText = new Text(e.getMessage());
+                primaryStage.setScene(new Scene(new Group(exceptionText), 600, 300));
+            } catch (NoWikiConnectionException e) {
+                Text exceptionText = new Text(e.getMessage());
+                primaryStage.setScene(new Scene(new Group(exceptionText), 600, 300));
             } catch (IOException e) {
-                System.err.println("Runtime Error: " + e.getMessage());
+                Text exceptionText = new Text(e.getMessage());
+                primaryStage.setScene(new Scene(new Group(exceptionText), 600, 300));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         });
         vbox.getChildren().add(button);
@@ -46,5 +57,6 @@ public class GUI extends Application {
         primaryStage.show();
 
     }
+
 
 }
