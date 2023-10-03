@@ -1,10 +1,10 @@
-package edu.bsu.cs222;
+package edu.bsu.cs222.Model;
+
+import edu.bsu.cs222.Exceptions.NoPageExistException;
 
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
-import edu.bsu.cs222.Exceptions.NoPageExistException;
 import net.minidev.json.JSONArray;
-
 import java.io.InputStream;
 
 public class WikipediaRevisionParser  {

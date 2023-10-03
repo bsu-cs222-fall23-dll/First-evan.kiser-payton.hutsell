@@ -1,5 +1,7 @@
 package edu.bsu.cs222;
 
+import edu.bsu.cs222.Model.*;
+
 import java.io.IOException;
 import java.io.InputStream;
 

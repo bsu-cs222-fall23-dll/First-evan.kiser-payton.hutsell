@@ -1,7 +1,8 @@
 package edu.bsu.cs222;
 
-import edu.bsu.cs222.Exceptions.NoInputException;
-import edu.bsu.cs222.Exceptions.NoWikiConnectionException;
+import edu.bsu.cs222.Exceptions.*;
+import edu.bsu.cs222.Model.*;
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;

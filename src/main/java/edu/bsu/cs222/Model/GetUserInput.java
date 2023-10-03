@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package edu.bsu.cs222.Model;
 
 import edu.bsu.cs222.Exceptions.NoInputException;
 
