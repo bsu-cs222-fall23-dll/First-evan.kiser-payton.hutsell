@@ -21,12 +21,8 @@ public class WikipediaConnectionTest {
 
     @Test
     public void testConnectionToWikipedia() throws Exception {
-        try {
-            URLConnection connection = wikiConnection.connectToWikipedia();
-            assertNotNull(connection);
-        } catch (IOException e) {
-            System.err.println("IOException should not be thrown");
-        }
+        URLConnection connection = wikiConnection.connectToWikipedia();
+        assertNotNull(connection);
     }
 
     @Test
