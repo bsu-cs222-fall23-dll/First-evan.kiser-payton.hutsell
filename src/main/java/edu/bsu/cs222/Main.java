@@ -14,9 +14,10 @@ public class Main {
                 InputStream wikipediaData = connector.callingConnectToWikipedia();
                 String finalStringOfRevisions = parser.parse(wikipediaData);
                 System.out.println(finalStringOfRevisions);
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.err.println("Runtime Error: " + e.getMessage());
                 System.exit(0);
+
             }
     }
 }
