@@ -17,13 +17,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.io.InputStream;
 
-public class GUI extends Application {
+public class GUI extends Application  {
     Text printedRevisions = new Text();
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage)  {
         VBox vbox = new VBox();
             vbox.setAlignment(Pos.CENTER);
             vbox.setSpacing(10);
@@ -38,6 +37,10 @@ public class GUI extends Application {
 
         Button button = new Button("Search!");
         button.setOnAction(event -> {
+            if (textField.getText().equals("")) {
+                showErrorDialog("Error, You did not input anything!");
+                System.exit(0);
+            }
             WikipediaConnection connector = new WikipediaConnection(textField.getText());
             WikipediaRevisionParser parser = new WikipediaRevisionParser();
             try {
@@ -50,15 +53,15 @@ public class GUI extends Application {
                 Label noPageExistLabel = new Label(noPageExistException.getMessage());
                     noPageExistLabel.setAlignment(Pos.CENTER);
                     noPageExistLabel.setFont(Font.font(25));
-            } catch (Exception e) {
-                showErrorDialog(e.getMessage());
+                primaryStage.setScene(new Scene(noPageExistLabel) );
+            } catch (Exception exception) {
+                showErrorDialog(exception.getMessage());
             }
         });
-        vbox.getChildren().add(button);
 
+        vbox.getChildren().add(button);
         primaryStage.setScene(new Scene(vbox));
         primaryStage.show();
-
     }
     private void showErrorDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

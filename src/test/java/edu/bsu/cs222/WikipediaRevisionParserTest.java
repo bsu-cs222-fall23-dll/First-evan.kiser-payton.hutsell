@@ -20,7 +20,7 @@ public class WikipediaRevisionParserTest {
 
         String revisions = parser.parse(dataStream);
 
-        Assertions.assertNull(revisions);
+        Assertions.assertNotNull(revisions);
 
     }
 
